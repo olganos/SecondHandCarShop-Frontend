@@ -10,7 +10,7 @@ export const CarCatalog = () => {
     useEffect(async () => {
         const carsResponse = await getAll();
         if (carsResponse) {
-            setCars(transformCars(carsResponse).sort((a, b) => a.date_added - b.date_added))
+            setCars(transformCars(carsResponse).sort((a, b) => a.date_added_as_date - b.date_added_as_date))
         }
     }, []);
 

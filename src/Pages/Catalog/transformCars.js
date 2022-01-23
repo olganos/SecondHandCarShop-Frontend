@@ -9,7 +9,7 @@ export const transformCars = (carResponse) => {
                     locationName: currentValue.cars.location,
                 },
                 ...vehicle,
-                date_added: new Date(vehicle.date_added)
+                date_added_as_date: new Date(vehicle.date_added)
             }
         }))
     }, [])
