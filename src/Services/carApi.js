@@ -7,7 +7,11 @@ const headers = {
 }
 
 export const getAll = async () => {
-    //fetch(`${api}/car`, { headers })
     const res = await fetch('/car', { headers })
+    return res.json();
+}
+
+export const getCar = async (id) => {
+    const res = await fetch(`/car/${id}`, { headers })
     return res.json();
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { getAll } from '../../Services/carApi';
 import { transformCars } from './transformCars';
@@ -19,13 +20,16 @@ export const CarCatalog = () => {
     console.log(cars);
     return (
         <>
+            <h1>
+                Catalog
+            </h1>
             {cars.map((car, index) => (
                 <div
                     key={`car${index}`}
                     className="catalog-item"
                 >
                     <p>
-                        {car.make} {car.model}
+                        <Link to={`/cars/${car._id}`}>{car.make} {car.model}</Link>
                     </p>
                     <p>
                         made: {car.year_model} - price: {car.price}
@@ -33,7 +37,7 @@ export const CarCatalog = () => {
                     <p>
                         {car.date_added}
                     </p>
-                </div>                
+                </div>
             ))}
         </>
     );
