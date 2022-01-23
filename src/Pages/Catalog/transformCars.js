@@ -8,7 +8,8 @@ export const transformCars = (carResponse) => {
                     location: currentValue.location,
                     locationName: currentValue.cars.location,
                 },
-                ...vehicle
+                ...vehicle,
+                date_added: new Date(vehicle.date_added)
             }
         }))
     }, [])

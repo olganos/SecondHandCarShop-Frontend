@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { getAll } from '../../Services/carApi';
 import { transformCars } from './transformCars';
+import "./CarCatalog.css";
 
 export const CarCatalog = () => {
     const [cars, setCars] = useState(null);
@@ -19,12 +20,19 @@ export const CarCatalog = () => {
     return (
         <>
             {cars.map((car, index) => (
-                <div key={`car${index}`}>
-                    {car.make} {car.model}
-                    <br />
-                    {car.year_model} - {car.price}
-                    <br />
-                    <br />
+                <div
+                    key={`car${index}`}
+                    className="catalog-item"
+                >
+                    <p>
+                        {car.make} {car.model}
+                    </p>
+                    <p>
+                        made: {car.year_model} - price: {car.price}
+                    </p>
+                    <p>
+                        {car.date_added}
+                    </p>
                 </div>                
             ))}
         </>
